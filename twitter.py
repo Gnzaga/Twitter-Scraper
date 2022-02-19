@@ -40,7 +40,7 @@ def sampler(fname):
         time.sleep(3)
 
 
-def getTweets(topic=None, limit=100, fname=None):
+def getTweets(topic=None, limit=100, fname=None, verbose=False):
     topic = topic
     limit = limit
     fname = fname
@@ -52,7 +52,10 @@ def getTweets(topic=None, limit=100, fname=None):
     c.since = "2019-1-1"
     c.Search = [topic]
     c.Limit = limit
-    c.Hide_output = True
+    if verbose == False:
+        c.Hide_output = True
+    else:
+        c.Hide_output = False
 #maybe change later to allow for different output formats
     c.Store_csv = True
 
